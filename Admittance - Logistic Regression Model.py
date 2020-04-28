@@ -17,16 +17,8 @@ sns.set()
 
 
 # #### Load the data
-
-# In[4]:
-
-
 raw_data = pd.read_csv('2.01. Admittance.csv')
 raw_data
-
-
-# In[5]:
-
 
 data = raw_data.copy()
 data['Admitted'] = data['Admitted'].map({'Yes':1, 'No':0})
@@ -34,10 +26,6 @@ data
 
 
 # #### Variables
-
-# In[7]:
-
-
 y = data['Admitted']
 x1 = data['SAT']
 
@@ -45,10 +33,6 @@ x1 = data['SAT']
 # ### Let's plot the data
 
 # #### Scatter Plot
-
-# In[10]:
-
-
 plt.scatter(x1,y,color='C0')
 plt.xlabel('SAT', fontsize=20)
 plt.ylabel('Admitted', fontsize=20)
@@ -56,10 +40,6 @@ plt.show()
 
 
 # ### Plot with a regression line
-
-# In[14]:
-
-
 x = sm.add_constant(x1)
 reg_lin = sm.OLS(y,x)
 results_lin = reg_lin.fit()
@@ -72,18 +52,10 @@ plt.xlabel('SAT', fontsize=20)
 plt.ylabel('Admitted', fontsize=20)
 plt.show()
 
-
-# In[15]:
-
-
 # data is non-linear thus must use non-linear approach
 
 
 # #### Plot with a Logistic Regression Curve
-
-# In[22]:
-
-
 reg_log = sm.Logit(y,x)
 results_log = reg_log.fit()
 
@@ -98,9 +70,6 @@ plt.xlabel('SAT', fontsize=20)
 plt.ylabel('Admitted', fontsize=20)
 plt.plot(x_sorted, f_sorted, color='C8')
 plt.show()
-
-
-# In[ ]:
 
 
 # Logistic Regression Assumptions:
@@ -119,4 +88,3 @@ plt.show()
 
 # Linear Regression Model:
 # y = b0 + b1*x1 + ... + epsilon
-
